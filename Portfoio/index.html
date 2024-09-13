@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init({
+                publicKey: "your_key",
+            });
+        })();
+    </script>
     <title>Portfolio | Piyush</title>
 </head>
 
@@ -28,7 +37,7 @@
             <div class="menu_list" id="menu_list">
                 <nav>
                     <ul>
-                        <li id="nav-home" ><a>Home</a></li>
+                        <li id="nav-home"><a>Home</a></li>
                         <li id="nav-about"><a>About</a></li>
                         <li id="nav-skills"><a>Skills</a></li>
                         <li id="nav-projects"><a>Projects</a></li>
@@ -230,7 +239,8 @@
                         <div class="card qualification todo">
                             <div class="top">
                                 <h2>Todo list</h2>
-                                <p>An intuitive project management tool designed to streamline task organization and enhance productivity effortlessly.</p>
+                                <p>An intuitive project management tool designed to streamline task organization and
+                                    enhance productivity effortlessly.</p>
                                 <a target="_blank" href="https://todo773.netlify.app">Live demo</a>
                             </div>
                             <div class="bottom btm"></div>
@@ -238,7 +248,8 @@
                         <div class="card qualification rock">
                             <div class="top">
                                 <h2>Rock-Paper-Scissor</h2>
-                                <p>A classic game implementation offering engaging entertainment through strategic decision-making of rock, paper, and scissors.</p>
+                                <p>A classic game implementation offering engaging entertainment through strategic
+                                    decision-making of rock, paper, and scissors.</p>
                                 <a target="_blank" href="https://rock-paper12.netlify.app">Live demo</a>
                             </div>
                             <div class="bottom btm"></div>
@@ -246,16 +257,18 @@
                         <div class="card qualification calculator">
                             <div class="top">
                                 <h2>Scientific calculator</h2>
-                                <p>A versatile tool designed to handle mathematical operations, currency conversions, and offering comprehensive functionality for a wide range of calculations.</p>
-                                <a target="_blank" href="#">Live demo</a>
+                                <p>A versatile tool designed to handle mathematical operations, currency conversions,
+                                    and offering comprehensive functionality for a wide range of calculations.</p>
+                                <a href="#">Live demo</a>
                             </div>
                             <div class="bottom btm"></div>
                         </div>
                         <div class="card qualification tic-tac-toe">
                             <div class="top">
                                 <h2>Tic-tac-toe</h2>
-                                <p>A timeless game experience, offering endless fun and strategic challenges through the classic grid-based gameplay of Tic Tac Toe.</p>
-                                <a target="_blank" href="#">Live demo</a>
+                                <p>A timeless game experience, offering endless fun and strategic challenges through the
+                                    classic grid-based gameplay of Tic Tac Toe.</p>
+                                <a href="#">Live demo</a>
                             </div>
                             <div class="bottom btm"></div>
                         </div>
@@ -265,13 +278,14 @@
             <div class="contact" id="contact">
                 <div class="contact_inner">
                     <div class="contact_form_inner">
-                        <form class="contact_field">
+                        <form class="contact_field" onsubmit="sendEmail(); reset(); return false;">
                             <h3>Contact Us</h3>
-                            <p>Feel Free to contact us any time. We will get back to you as soon
-                                as we can!.</p>
-                            <input type="text" class="form-control form-group" placeholder="Name" required />
-                            <input type="email" class="form-control form-group" placeholder="Email" required />
-                            <textarea class="form-control form-group" placeholder="Message" required></textarea>
+                            <p>Feel Free to contact us any time. We will get back to you as soon as we can!.</p>
+                            <input id="name" type="text" class="form-control form-group" placeholder="Name" required />
+                            <input id="email" type="email" class="form-control form-group" placeholder="Email"
+                                required />
+                            <textarea id="message" class="form-control form-group" placeholder="Message"
+                                required></textarea>
                             <button type="submit" class="contact_form_submit">Send</button>
                         </form>
                     </div>
@@ -295,7 +309,6 @@
         </div>
     </div>
     <script src="portfolio.js"></script>
-
 </body>
 
 </html>
