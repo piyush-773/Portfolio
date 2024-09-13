@@ -13,8 +13,8 @@ const hamburger = document.getElementById("hamburger");
 const menuList = document.getElementById("menu_list");
 
 function showSection(sectionId) {
-  if(menuList.classList.contains("show")){
-    toggleMenu()
+  if (menuList.classList.contains("show")) {
+    toggleMenu();
   }
   const sections = ["home", "about", "skills", "projects", "contact"];
   sections.forEach((section) => {
@@ -83,12 +83,11 @@ document.addEventListener("DOMContentLoaded", function () {
   if (textArray.length) setTimeout(type, newTextDelay + 250);
 });
 
-function toggleMenu(){
+function toggleMenu() {
   menuList.classList.toggle("show");
   if (menuList.classList.contains("show")) {
     menuList.style.display = "block";
-  }
-  else{
+  } else {
     menuList.style.display = "none";
   }
 }
@@ -149,3 +148,25 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("load", handleScreenSize);
   window.addEventListener("resize", handleScreenSize);
 });
+
+function sendEmail() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  let templateParams = {
+    name: name,
+    email: email,
+    message: message
+  };
+
+  // Send the email using EmailJS
+  emailjs.send('service_id', 'template_id', templateParams)
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+       alert('Your message has been sent successfully!');
+    }, function(error) {
+       console.log('FAILED...', error);
+       alert('There was an error sending your message. Please try again later.');
+    });
+}
